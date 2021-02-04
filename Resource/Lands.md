@@ -221,25 +221,25 @@ Discord: https://discord.gg/B4MAJVk
 
 1. 首先,打开你的王国管理菜单 `/lands menu` ,然后点击 `区域物品` .(您的服务器可能会有一些不一样)
 
-![AreaItem](E:\Download-Chrome\AreaItem.png)
+![AreaItem](E:\MCBBS Translate\Lands\Lands\Resource\AreaItem.png)
 
 2. 现在点击进去,然后点击创建区域,并且在聊天框输入区域名字.
 
-![AreaCreate](E:\Download-Chrome\AreaCreate.png)
+![AreaCreate](E:\MCBBS Translate\Lands\Lands\Resource\AreaCreate.png)
 
 3. 之后，你会发现你打开了区域菜单，并且告诉你如何设置区域大小.
 
-![AreaSize](E:\Download-Chrome\AreaSize.png)
+![AreaSize](E:\MCBBS Translate\Lands\Lands\Resource\AreaSize.png)
 
 4. 当设置完毕后,它会实时显示区域大小给你,你可以根据你的需要进行更改,然后只需要再次输入 `/lands selection` 既可.
 
-![AreaSelection](E:\Download-Chrome\SelectionSuccessful.png)
+![AreaSelection](E:\MCBBS Translate\Lands\Lands\Resource\SelectionSuccessful.png)
 
 ### 信任玩家&设置Flags
 
 请再次打开区域菜单,你可以在这片区域信任一个玩家,或者编辑其它玩家能用的权限(类似于 Residence 的领地权限一般,称之为 Flags[标志]),而且,你可以为这片区域当成一个小王国.
 
-![Flags](E:\Download-Chrome\Flags.png)
+![Flags](E:\MCBBS Translate\Lands\Lands\Resource\Flags.png)
 
 
 
@@ -262,7 +262,7 @@ Discord: https://discord.gg/B4MAJVk
 ----
 #### 如何设置租赁牌?
 
-![RentSign](E:\Download-Chrome\RentSign.jpg)
+![RentSign](E:\MCBBS Translate\Lands\Lands\Resource\RentSign.jpg)
 
 #### 说明
 
@@ -275,7 +275,7 @@ Discord: https://discord.gg/B4MAJVk
 
 #### 设置以后
 
-![Result](E:\Download-Chrome\Result.jpg)
+![Result](E:\MCBBS Translate\Lands\Lands\Resource\Result.jpg)
 
 #### 说明
 
@@ -291,7 +291,7 @@ Discord: https://discord.gg/B4MAJVk
 ----
 #### 如何设置出售牌?
 
-![SellSign](E:\Download-Chrome\SellSign.jpg)
+![SellSign](E:\MCBBS Translate\Lands\Lands\Resource\SellSign.jpg)
 
 #### 说明
 
@@ -301,7 +301,7 @@ Discord: https://discord.gg/B4MAJVk
 
 #### 设置以后
 
-![ResultSign](E:\Download-Chrome\ResultSell.jpg)
+![ResultSign](E:\MCBBS Translate\Lands\Lands\Resource\ResultSell.jpg)
 
 #### 说明
 
