@@ -368,4 +368,17 @@ view:
 **答:** 小妹妹不要在网上晒自己,要多学习提高自己的知识才是正事,那么就让哥哥告诉你,在 `plugins/Lands/Language` 文件夹就能找到.
 
 **问:** 即使我禁用了PVP,但我还是想让我的玩家PVP.
-**答:** 
+**答:** 你可以打开这个设置
+```yaml
+# Specified combat settings which do not affect wars.
+combat:
+  # Combat tagging
+  # If a player attacks a other player he will by tagged for x seconds so that, regardless of land settings,
+  # other players can attack him.
+  # 0s = disabled
+  tag-time: 15s
+  # Should players, which are members in a common land, be able to fight in wilderness?
+  # NOTE: This option requires server restart / reload.
+  ally-wilderness: true
+
+```
