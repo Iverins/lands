@@ -221,25 +221,25 @@ Discord: https://discord.gg/B4MAJVk
 
 1. 首先,打开你的王国管理菜单 `/lands menu` ,然后点击 `区域物品` .(您的服务器可能会有一些不一样)
 
-![AreaItem](E:\MCBBS Translate\Lands\Lands\Resource\Image\AreaItem.png)
+![AreaItem](https://static.complexstudio.net:10500/uploads/images/2021-02-04/ddfad52fd978a0cae9381dc857702b1d.png)
 
 2. 现在点击进去,然后点击创建区域,并且在聊天框输入区域名字.
 
-![AreaCreate](E:\MCBBS Translate\Lands\Lands\Resource\Image\AreaCreate.png)
+![AreaCreate](https://static.complexstudio.net:10500/uploads/images/2021-02-04/ac861de8e52fa9d442f10f8a6b5de0b1.png)
 
 3. 之后，你会发现你打开了区域菜单，并且告诉你如何设置区域大小.
 
-![AreaSize](E:\MCBBS Translate\Lands\Lands\Resource\Image\AreaSize.png)
+![AreaSize](https://static.complexstudio.net:10500/uploads/images/2021-02-04/b1b60e9d38f8f1bb7154f189b3444f75.png)
 
 4. 当设置完毕后,它会实时显示区域大小给你,你可以根据你的需要进行更改,然后只需要再次输入 `/lands selection` 既可.
 
-![AreaSelection](E:\MCBBS Translate\Lands\Lands\Resource\Image\SelectionSuccessful.png)
+![AreaSelection](https://static.complexstudio.net:10500/uploads/images/2021-02-04/8ddea9824ca77f1903d2cd45d2461a73.png)
 
 ### 信任玩家&设置Flags
 
 请再次打开区域菜单,你可以在这片区域信任一个玩家,或者编辑其它玩家能用的权限(类似于 Residence 的领地权限一般,称之为 Flags[标志]),而且,你可以为这片区域当成一个小王国.
 
-![Flags](E:\MCBBS Translate\Lands\Lands\Resource\Image\Flags.png)
+![Flags](https://static.complexstudio.net:10500/uploads/images/2021-02-04/fa58080dda6381cc892a8c9b9341ec40.png)
 
 
 
@@ -262,7 +262,7 @@ Discord: https://discord.gg/B4MAJVk
 ----
 #### 如何设置租赁牌?
 
-![RentSign](E:\MCBBS Translate\Lands\Lands\Resource\Image\RentSign.jpg)
+![RentSign](https://static.complexstudio.net:10500/uploads/images/2021-02-04/b006b8bbbd2c17036923d93a3c93cdbd.jpg)
 
 #### 说明
 
@@ -275,7 +275,7 @@ Discord: https://discord.gg/B4MAJVk
 
 #### 设置以后
 
-![Result](E:\MCBBS Translate\Lands\Lands\Resource\Image\Result.jpg)
+![Result](https://static.complexstudio.net:10500/uploads/images/2021-02-04/50731d1e3cdd4c3a7ba9d01aa672a32b.jpg)
 
 #### 说明
 
@@ -291,7 +291,7 @@ Discord: https://discord.gg/B4MAJVk
 ----
 #### 如何设置出售牌?
 
-![SellSign](E:\MCBBS Translate\Lands\Lands\Resource\Image\SellSign.jpg)
+![SellSign](https://static.complexstudio.net:10500/uploads/images/2021-02-04/655a08eca29d5edf4772f8cc46ed00ac.jpg)
 
 #### 说明
 
@@ -301,7 +301,7 @@ Discord: https://discord.gg/B4MAJVk
 
 #### 设置以后
 
-![ResultSign](E:\MCBBS Translate\Lands\Lands\Resource\Image\ResultSell.jpg)
+![ResultSign](https://static.complexstudio.net:10500/uploads/images/2021-02-04/b75f2786499d655b8d48350390f8481f.jpg)
 
 #### 说明
 
