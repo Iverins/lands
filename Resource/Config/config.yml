@@ -1,0 +1,806 @@
+# 点此下载: https://www.spigotmc.org/resources/53313
+# Discord: https://discord.gg/B4MAJVk
+
+# 如果你有遇到任何BUG，请通过
+# Discord反馈给我或者PM我在Spigotmc的账户.
+# BUG的修复通常需要一些时间.
+# 你可以忽略配置文件中某些设置的ID (即 _数字).
+
+
+# 常规选项
+general:
+  # English (en-US)
+  # 预选的语言:
+  # 注意: 这些可能是旧版本的翻译,并不是最新的版本.
+  # French (fr-FR) by Mina, Kolsark, Kittle
+  # German (de-DE) by Cryper
+  # Hungarian (hu-HU) by gbalint
+  # Italian (it-IT) by MiniMoro
+  # Russian (ru-RU) by Envel
+  # Spanish (es-ES) by Port
+  # Swedish (sv-SE) by Broken_Arrow1
+  # Polish (pl-PL) by Nideon
+  # Vietnamese (vi-VN) by anhcraft
+  # Chinese (zh-CN) by Ruii
+  # Taiwanese (zh-TW) by FallingEagle96
+  language: 'en-US'
+
+  # 日期格式
+  # MM: 月份
+  # dd: 日期
+  # yyyy: 年
+  # hh: 小时
+  # mm: 分
+  # ss: 秒
+  # 注意: 这个设置需要服务器重启 / 重载.
+  date-format:
+    # 邀请显示等的通用格式.
+    # 24 小时格式:
+    # MM/dd/yyyy HH:mm:ss
+    general: 'MM/dd/yyyy hh:mm'
+    # 王国菜单 (收件箱) 中的新闻消息的格式.
+    inbox: 'MM/dd hh'
+
+  # 可以占领土地的世界.
+  # 注意: 这个设置需要服务器重启 / 重载.
+  claim-worlds_list:
+    - world
+
+  # 保护区是否保留在缓存内,即使没有玩家在这个区域也不卸载?
+  # 注意: 建议你将保护区设置在世界重生点的位置.
+  keep-safezone: true
+
+  # 玩家是否免受保护区的怪物的伤害?
+  safezone-invincible: true
+
+  # Edit the land you're standing in instead of the land from /Lands edit?
+  # For /Lands claim you will still need to set the claim land with /Land edit.
+  edit-by-loc: false
+
+  # Should Lands give every new player the selection tool defined in your gui language file?
+  # If you for example set GOLDEN_HOE as the material in your gui language file, all GOLDEN_HOE's will trigger a selection, not just the given one.
+  # That means that players can craft the tool too and use it to create selections. However, /Lands selection still works without any tool in hand.
+  # Automatically giving new players the selection tool, just informs them about claiming and with it they can manage selections from air, instead of needing to touch the block directly.
+  selection-tool: true
+
+  # Set the format of all economy related displays.
+  # NOTE: This setting requires server reload / restart.
+  eco-format: '#,###.00'
+
+  # Reward players by playing on your server.
+  # Explanation: https://github.com/Angeschossen/Lands/wiki/Playtime-Rewards
+  # NOTE: This setting requires server reload / restart.
+  time-reward:
+    enabled_17: false
+    # After how many seconds should players get rewarded with plus 1
+    # chunk, land, own land or member.
+    # NOTE: Time unit is seconds.
+    # NOTE: Changing these requires server reload / restart.
+    # NOTE: It can take up to 60 seconds for the player to get rewarded.
+    time:
+      # Plus 1 chunk (/Lands claim)
+      # If you want to disable this specific option, just set it to 0 or -1.
+      chunk: 3600
+      # Plus 1 lands where a player can be a member (not owner - /Lands accept, /Lands trust).
+      # If you want to disable this specific option, just set it to 0 or -1.
+      land: 43200
+      # Plus 1 land creation (/Lands create).
+      # If you want to disable this specific option, just set it to 0 or -1.
+      land-own: 86400
+      # Plus 1 land member (/Lands trust)
+      # If you want to disable this specific option, just set it to 0 or -1.
+      member: 21600
+      # Plus 1 lands.chunks.support.NUMBER
+      # This permission contributes claims to lands you're trusted in.
+      # If you want to disable this specific option, just set it to 0 or -1.
+      support: 0
+
+
+
+# Land settings
+land:
+  # Land creation
+  creation:
+    # Force the creation of a land (/Lands create) before a land is able to claim chunks.
+    # If set to false, Lands will auto generate a land with the name of the player.
+    # The name can be changed in the land menu or with /Lands rename <name>.
+    force: false
+    # The cost to create a land (/Lands create).
+    # NOTE: This includes also one chunk claim, which will be claimed automatically on land creation.
+    costs: 4000.0
+    # Max land name length
+    # The maximum possible length is 32 (including color codes)
+    name-length: 16
+    # Should colors be allowed in land names?
+    color_2: true
+    # Should numbers be allowed in land names?
+    numbers: true
+    # Automatically claim chunk on players location?
+    chunk-claim: true
+
+  # Set the minimum distance in chunks (16 blocks) between different lands that do not belong to the same owner.
+  # This prevents other land owners claiming directly at your land border.
+  chunk-distance: 1
+  # Force lands to claim near their claims.
+  force-near: true
+  # Chunk claiming by placing a special claim block.
+  # You can give claimblocks by executing the command /Lands admin give <player> claimblock [amount]
+  # If you don't want your players to claim via command, just
+  # don't give them lands.command.claim.
+  # If you don't want your players to claim with claimblocks,
+  # just don't give them claimblocks.
+  claimblock:
+    # Should only the owner of the claim block be able to use it?
+    only-owner: true
+
+  # Landspawn settings
+  spawn:
+    # Creation settings (/Land setspawn)
+    creation:
+      # Automatically set land spawn on land creation (/Lands create)?
+      # NOTE: The spawnpoint can always be changed with /Lands setspawn.
+      auto: true
+      # Costs
+      cost:
+        # Cost for first time set
+        set: 0.0
+        # Cost for changing spawn
+        change: 400.0
+
+    # Teleportation settings
+    teleport:
+      # Wait time until the player gets teleported.
+      # NOTE: Time unit is seconds
+      wait: 3
+      # Cost for teleportation to Land spawn.
+      costs_7: 0.0
+      # Cooldown for teleportation to a land spawn.
+      # NOTE: Time unit is seconds
+      cooldown_3: 0
+      # Teleport a player after death to land spawn.
+      re-spawn: true
+
+  # Rent/sell areas settings - Wiki: https://github.com/Angeschossen/Lands/wiki/Rent-System
+  # Rent = The players can rent a area of their choice without needing to get trusted. They can decide how long they want to rent it.
+  # Taxes = Trusted players pay a defined amount of tax per defined interval.
+  rent:
+    # Allow your players to set sub areas available for rent?
+    rent: true
+    # Allow your players to sell sub areas or their whole land?
+    sell: true
+
+  # Invite settings
+  invite:
+    # If you disable invites, players can directly trust
+    # other players with /Lands trust.
+    # This option requires server reload / restart.
+    enabled_16: true
+    # Should land owners be able to get invited by other lands (/Lands trust, /Lands accept)?
+    # NOTE: If you disable this, land owners can't be part of another land.
+    invite-owner: true
+
+  # Broadcast settings
+  broadcast:
+    # If someone created a new land.
+    # Message: land.create.broadcast
+    create: true
+    # If someone deleted his land, and the claim size isn't null (this prevents spamming).
+    # Message: land.create.broadcast
+    delete: true
+    # Should /Lands chat messages be forwarded to console?
+    chat: false
+
+  # Rename settings
+  # Command: /Lands rename
+  rename:
+    # Costs to rename a land.
+    costs_5: 1000.0
+    # Cooldown to rename the land.
+    # NOTE: Time unit is seconds
+    # Bypass permission: lands.bypass.cooldown.rename
+    cooldown_4: 900
+
+  # Fly Settings (Flags can be found in thme roles section)
+  fly:
+    # Allow players to fly only in
+    # Lands claim worlds (setting: claim-worlds_list)?
+    # Bypass permission: lands.bypass.wilderness.fly
+    # NOTE: This requires server reload / restart.
+    only-claimworld: true
+    # Set the fly deactivation delay if a player is not allowed to fly at this position.
+    # Timeunit: Seconds
+    disable-delay: 3
+
+  # /Lands setowner Settings
+  setowner:
+    # The land (or the land owner, if banks are disabled) will need to pay this amount in order to set a new owner.
+    # This prevents abusing of ownership transfers in order to bypass limitations.
+    costs_6: 5000.0
+
+
+  # Delete inactive Lands, if the owner is offline since x days.
+  expiration:
+    # NOTE: This setting requires server reload / restart.
+    enabled: true
+    # Time in days
+    # NOTE: You can set a time setting to 0 to disable it.
+    offline-days:
+      # Time in days the owner needs to be offline to flag his land as inactive.
+      owner: 80
+      # Time in days a land member needs to be offline to automatically untrust him from a protection.
+      # If the player isn't trusted in any protections after that, he will get deleted. This also resets his playtime.
+      member_2: 80
+    # Should an inactive owner be replaced by a land member?
+    # Lands will always try to set the member with the highest role
+    # as the new owner.
+    replace-owner: true
+    # Should players, which have been deleted from the servers (primary world) playerdata folder, be deleted?
+    # NOTE: It is recommended to keep this disabled. If this is enabled and you delete the playerdata folder in your primary world, it MAY DELETE ALL LANDS depending on your expiration settings.
+    delete-invalid: false
+
+
+  # Specified combat settings which do not affect wars.
+  combat:
+    # Combat tagging
+    # If a player attacks a other player he will by tagged for x seconds so that, regardless of land settings,
+
+    # other players can attack him.
+    # 0s = disabled
+    tag-time: 0s
+    # Should players, which are members in a common land, be able to fight in wilderness?
+    # NOTE: This option requires server restart / reload.
+    ally-wilderness: true
+
+  # Set claim limits per world.
+  # Example: If you set the permission lands.chunks.5 for your players,
+  # they will be able to claim 5 chunks in each claim world instead of 5 chunks in general.
+  # NOTE: This only applies for claim permissions: lands.chunks.NUMBER, lands.ownlands.NUMBER
+  # It is recommended to keep this disabled.
+  claim-limits-per-world: false
+
+
+# Taxes settings
+# Taxes = Trusted players pay a defined amount of tax per defined interval.
+# Rent = The players can rent a area of their choice without needing to get trusted. They can decide how long they want to rent it.
+taxes:
+  enabled_3: true
+  # Taxes interval
+  # Interval of payment
+  # TimeUnits:
+  # Seconds: s
+  # Minutes: m
+  # Hours: h
+  # Days: d
+  interval: 10d
+  # If enabled, land actions like /Lands claim will take the money from the land bank
+  # instead of directly from the player
+  # Deposit: /Lands deposit
+  # Withdraw: /Lands withdraw
+  # Land balance: /Lands balance
+  # NOTE: Your players will need to deposit money into the land bank before they are able to claim.
+  # NOTE: This setting requires server reload / restart.
+  banks: true
+  # Set the minimum time between a player's attempt to change the tax for their land and the time of the next tax.
+  change-cooldown: 2d
+  # Set max tax value for a CHUNK (not the whole land)
+  # Land taxes are being calculated according to land size (chunks) * chunk tax value
+  max-value: 1000.0
+  # Untrust a land member from the land if he can't pay the taxes?
+  untrust-member: true
+  # Announce upcoming tax payments to players
+  # Set this to 0 to disable it.
+  announcement: 45m
+
+# Land upkeep costs
+# Upkeep = Lands pay a defined amount of money to the server in order to keep their claimed land.
+# Taxes = Trusted players pay a defined amount of tax per defined interval.
+upkeep:
+  # NOTE: This setting requires server reload / restart.
+  enabled_19: true
+  # Interval of payment
+  # TimeUnits:
+  # Seconds: s
+  # Minutes: m
+  # Hours: h
+  # Days: d
+  interval_2: 15d
+  # How much should a land pay per chunk?
+  # NOTE: Final payment would be land size (chunks) * cost
+  cost-per-chunk: 50.0
+  # Should the last claimed chunks, which the land could not pay for, be deleted?
+  # Example: The land has 10 claimed chunks, but it can pay the upkeep only for 6. So the 4 last claimed chunks will be deleted.
+  # This continues each upkeep cicle until no claims are left.
+  unclaim: false
+  # Exclude land from upkeep, if it was recently created?
+  # This will prevent recently created lands getting a chunk deleted, if the land owner / land bank doesn't have enough money (and if delete-chunk enabled).
+  # So only lands, which are older than x seconds, will need to pay this.
+  # Timeunit is seconds.
+  nopay-time: 2h
+
+
+
+# Chunk settings
+chunk:
+  # Cost to claim a chunk.
+  costs_2: 1500.0
+  # Increase cost per chunk claim.
+  cost-increase:
+    # Available modes:
+    # Percentage: For example putting 10% per claim on top of the normal claim price per claim.
+    # Add: For example adding 10 dollars to the claim cost every time the land claims a chunk.
+    # Default: Disables this option
+    mode: 'DEFAULT'
+    value: 2
+    # Set the maximum claim cost.
+    # NOTE: Set this to 0 in order to disable that option.
+    max_2: 0.0
+  # Cashback settings (Chunk unclaim: /Lands unclaim)
+  cashback:
+    # Available modes:
+    # PERCENTAGE: For example giving them 10% from the buy price back.
+    # ADD: For example giving them just 10 dollars back.
+    mode_2: 'PERCENTAGE'
+    # Set this value to 0, if you want to disable this.
+    value_2: 15
+
+  # Chunk teleportation options
+  teleport:
+    # Wait time for a player to be teleported to the chunk.
+    # NOTE: Timunit is seconds
+    wait_2: 3
+    # Teleportation cooldown
+    # Bypass permission: lands.bypass.cooldown.teleport
+    # Command: /Lands teleport or through the GUI menu.
+    # NOTE: Timeunit is seconds
+    cooldown_2: 150
+    # Cost for a teleportation.
+    costs_3: 15
+
+  # Auto claim chunks while standing on them.
+  auto-claim:
+    # NOTE: This setting requires server reload / restart.
+    enabled_14: true
+    # How many times should Lands execute autoclaim until it stops automatically?
+    rounds-stop: 50
+
+  # Allow claiming only in the initial world, in which the land was created?
+  # This means that a land can only have claims in one world.
+  initial-world: false
+
+  # These settings are chunk specific settings, which can be set for specific chunks or the whole land.
+  # They are DEFAULT settings, which means that they will only apply to new land creations.
+  setting:
+    #
+    # ENTITY_GRIEFING
+    # Allow entities to grief in the chunk / land?
+    entity_griefing:
+      default_13: false
+      # Display this setting in the land settings menu? If set to false, players won't be able to change it.
+      display_62: true
+      # Automatically enable this setting during war?
+      during-war: false
+    #
+    # TNT_GRIEFING
+    # Allow tnt to destroy blocks in the chunk / land?
+    tnt_griefing:
+      default_65: false
+      display_63: true
+      during-war_2: false
+    #
+    # PISTON_GRIEFING
+    # Allow pistons from a wilderness to push into the chunk / land?
+    # NOTE: This should be set to false, since it protects against griefing from other players.
+    piston_griefing:
+      default_14: false
+      display_64: true
+      during-war_3: false
+
+    #
+    # MONSTER_SPAWN
+    # Allow monster spawning in the chunk / land?
+    monster_spawn:
+      default_51: true
+      # Prevent spawning from spawner blocks?
+      include-spawners: false
+      # Display this setting in the land settings menu? If set to false, players won't be able to change it.
+      display_65: true
+      # Automatically enable this setting during war?
+      during-war_4: false
+      # Remove monsters that enter a land or wilderness where monster spawning is disabled? Monsters with a custom name won't be removed.
+      # NOTE: It is recommended to keep this disabled. It can cause incompatibilities with 3rd party mob plugins and might affect your servers performance due minecraft limitations.
+      # NOTE: This will also remove monsters spawned by spawners.
+      # This option requires server reload / restart.
+      enter-remove: false
+
+    #
+    # ANIMAL_SPAWN
+    # Allow animal spawning in the chunk / land?
+    animal_spawn:
+      default_61: true
+      # Display this setting in the land settings menu? If set to false, players won't be able to change it.
+      display_66: true
+      # Automatically enable this setting during war?
+      during-war_5: false
+      # Remove animals that enter a land or wilderness where animal spawning is disabled? Animals with a custom name won't be removed.
+      # NOTE: It is recommended to keep this disabled. It can cause incompatibilities with 3rd party mob plugins and might affect your servers performance due minecraft limitations.
+      # NOTE: This will also remove animals spawned by spawners.
+      # This option requires server reload / restart.
+      enter-remove_2: false
+
+    #
+    # WATERFLOW_ALLOW
+    # Allow waterflow from a wilderness to the chunk / land?
+    # NOTE: This should be set to false, since it protects against griefing from other players.
+    waterflow_allow:
+      default_68: false
+      display_67: true
+
+    #
+    # FIRE_SPREAD
+    # Allow fire spreading inside the land? Fire won't be able to spread from wilderness inside the land.
+    fire_spread:
+      default_73: false
+      display_76: true
+
+    #
+    # LEAF_DECAY
+    # Should leaves decay inside a land?
+    leaf_decay:
+      default_74: true
+      display_77: true
+    #
+    # PLANT_GROWTH
+    # Should plants be able to grow?
+    plant_growth:
+      default_75: true
+      display_78: true
+    #
+    # SNOW_MELT
+    # Should snow and ice melt?
+    snow_melt:
+      default_76: true
+      display_79: true
+
+# Area Settings
+# Areas are created inside a land by blocks, not chunks.
+area:
+  # Set the minimum size of a area (in blocks).
+  # With this setting you can force your players to organize their areas.
+  min-size: 60
+
+
+# Top 10 lands leaderboard settings
+# Includes /Lands top, leaderboard signs and holograms
+top-lands:
+  # Top lands sort mode
+  # Available sort modes: BALANCE, SIZE, MEMBERS
+  # NOTE: BALANCE requires banks to be enabled.
+  # This option requires server reload / restart.
+  sort-mode: 'BALANCE'
+  # Should Lands divide the balance of the lands by 1000 and append "k" to it, if the balance is greater or equal to 1000?
+  # Example: 1400 = 1k
+  divide: false
+  # Sign lederboard settings
+  sign:
+    # Place the head of the land owner on top of the block, where the leaderboard sign is?
+    head-above: false
+  # Holograms (/Lands admin hologram)
+  hologram:
+    # Set an item, which should appear over the hologram.
+    # You can set this to AIR, if you want to disable this.
+    # NOTE: It may take up to two minutes to update the item.
+    item: 'GOLDEN_HELMET'
+  # Exclude lands from being in top lists from players
+  # with these UUIDs. Get UID from player name: https://mcuuid.net/
+  # NOTE: Changes to this option might take a few minutes to take effect.
+  exclude-uids_list:
+    - '8667ba71-b85a-4004-af54-457a9734eed7'
+
+
+
+# Visualization settings
+visualization:
+  type:
+    # Wilderness
+    wilderness:
+      # Particles can be found here:
+      # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html#enum.constant.summary
+      particle: 'BARRIER'
+      # NOTE: Only the color of the REDSTONE particle can be changed.
+      # To edit the color you need to insert the hex values given here:
+      # https://www.google.com/search?q=color+picker
+      color: '#00a329'
+      # Duration in seconds
+      duration: 20
+      rows: 1
+      # If you want to use blocks instead of particles for sub AREAS (not land border):
+      # NOTE: It is not recommended to use this without the option only-corners (from below) as sending block changes to players might cause lag at their client. Also using particles performs better on the server side.
+      # NOTE: If empty or AIR, it will use the configured particle from above.
+      block: ''
+    # If the player is the land owner.
+    own:
+      particle_3: 'BARRIER'
+      # NOTE: Only the color of REDSTONE and SPELL_MOB particle can be changed.
+      # To edit the color you need to insert the hex values given here:
+      # https://www.google.com/search?q=color+picker
+      color_3: '#03fc07'
+      duration_3: 4
+      rows_3: 1
+      # If you want to use blocks instead of particles for sub AREAS (not land border):
+      # NOTE: It is not recommended to use this without the option only-corners (from below) as sending block changes to players might cause lag at their client. Also using particles performs better on the server side.
+      # NOTE: If empty or AIR, it will use the configured particle from above.
+      block_2: ''
+    # If the player is trusted in the land.
+    trusted:
+      particle_4: 'BARRIER'
+      # NOTE: Only the color of REDSTONE and SPELL_MOB particle can be changed.
+      # To edit the color you need to insert the hex values given here:
+      # https://www.google.com/search?q=color+picker
+      color_4: '#f2f200'
+      duration_4: 4
+      rows_4: 1
+      # If you want to use blocks instead of particles for sub AREAS (not land border):
+      # NOTE: It is not recommended to use this without the option only-corners (from below) as sending block changes to players might cause lag at their client. Also using particles performs better on the server side.
+      # NOTE: If empty or AIR, it will use the configured particle from above.
+      block_3: ''
+    # If player isn't trusted in the land.
+    untrusted:
+      particle_5: 'BARRIER'
+      # NOTE: Only the color of REDSTONE and SPELL_MOB particle can be changed.
+      # To edit the color you need to insert the hex values given here:
+      # https://www.google.com/search?q=color+picker
+      color_5: '#ff0000'
+      duration_5: 4
+      rows_5: 1
+      # If you want to use blocks instead of particles for sub AREAS (not land border):
+      # NOTE: It is not recommended to use this without the option only-corners (from below) as sending block changes to players might cause lag at their client. Also using particles performs better on the server side.
+      # NOTE: If empty or AIR, it will use the configured particle from above.
+      block_4: ''
+    # Visualize selection mode (/Lands selection)
+    selection:
+      particle_8: 'BARRIER'
+      # NOTE: Only the color of REDSTONE and SPELL_MOB particle can be changed.
+      # To edit the color you need to insert the hex values given here:
+      # https://www.google.com/search?q=color+picker
+      color_8: '#ff9100'
+      # Will stay permanent until selection mode is disabled.
+      # You can change that by editing this value.
+      duration_8: -1
+      rows_8: 1
+
+  # /Lands view visualization
+  view:
+    # Should Lands display land borders automatically once the player joins?
+    # NOTE: You can set duration_9 (below) to -1 to make the visualization permanent.
+    join: false
+    # Duration of land view.
+    # Time unit is seconds. You can make this permanent by setting the value to -1
+    duration_9: 60
+
+  # Should only the corners of AREAS be visualized?
+  # NOTE: This does NOT affect LAND borders.
+  only-corners: false
+
+  # /Lands map lengths
+  map:
+    # X Length (left to right)
+    x-length: 15
+    # Y Heigth (up)
+    y-heigth: 10
+
+
+
+# Command settings
+command:
+  # This is needed for time rewards and the /Lands admin give chunk <player> command
+  permission-plugin:
+    # Your permissions plugins command to add permissions.
+    # {player} will be replaced with the playername.
+    # {permission} will be replaced with the Lands permission.
+    add: 'Luckperms user {player} permission set {permission}'
+    # Your permission plugins command to remove permissions.
+    remove: 'Luckperms user {player} permission unset {permission}'
+
+  # These options require a server reload / restart.
+  alias:
+    # Set aliases for the /Lands command
+    # NOTE: This setting requires server reload / restart.
+    lands_list:
+      - land
+      - l
+
+    # Set aliases for the /Wars command
+    # This is only needed, if wars is enabled.
+    # NOTE: This setting requires server reload / restart.
+    wars_list:
+      - war
+      - w
+
+    # Set aliases for the /Nations command
+    # This is only needed, if nations is enabled.
+    # NOTE: This setting requires server reload / restart.
+    nations_list:
+      - nation
+      - n
+
+  # Block commands
+  # They are not case-sensitive.
+  blacklist:
+    # This affects all players which are standing in a land, where they aren't trusted.
+    nottrusted_list:
+      - sethome
+
+    # This affects all players, which are standing in a land.
+    general_list: [ ]
+
+
+# This is the configuration of the /Lands unstuck command.
+# Purpose of this command is to let players be able to teleported out of locations in lands where they got trapped.
+# For example a player finds a way walking into a land, but can't find a way out.
+# This command will teleported them to the nearest wilderness location.
+unstuck:
+  # Set the cooldown for this command.
+  cooldown_5: 1h
+  # How many seconds should the player need to wait until getting teleported into wilderness?
+  wait_4: 3
+
+# Random teleportation (/Lands wild)
+# When using this make sure to set the worlds spawn with /setworldspawn
+random-teleport:
+  # Worlds where players should be able to use /Lands wild.
+  # NOTE: World names are case-sensitive. If you don't enter them correctly, issues might occur.
+  wild-worlds_list:
+    - world
+
+  distance:
+    # Max distance from world spawn
+    # NOTE: YOU NEED TO SET THE WOLRD SPAWN (MIDDLE) TO LET THIS WORK PROPERLY: /setworldspawn
+    # This setting requires server reload / restart.
+    max: 30000
+    # Set the minimum distance between the players current position and the teleport destination.
+    min: 800
+
+  # Players will be random teleported in this world, if they're currently not in a world defined above.
+  # NOTE: The world name is case-sensitive.
+  backup: 'world'
+  # Should players be able to teleport to claimed land?
+  allow-land: false
+  # Prevent oceans?
+  prevent-oceans: true
+  # Wait time until the player will be teleported.
+  wait_3: 3
+  # Command (/Lands wild) cooldown
+  cooldown: 300
+  # Teleportation cost
+  costs_4: 570.0
+
+
+# Lands menu settings (/Lands menu)
+gui:
+  # Should Lands automatically adjust the length of item lore lines?
+  # Recommended length would be 35.
+  # NOTE: Set this to 0 to disable it.
+  max-lore-length: 0
+  # Should the /Lands list menu show only lands where to player can teleport to?
+  # Players can still toggle it afterwards. This is just a default setting.
+  list-only-public: false
+  # Should unused items from older versions automatically be removed from the gui language file?
+  # You may not want this if you want to add extra items to the menu.
+  remove-unused: true
+
+
+
+# Database settings
+database:
+  # MySQL database
+  # Please read this before using MySQL: https://github.com/Angeschossen/Lands/wiki/Database
+  # NOTE: MySQL server versions lower than 5.7.30 can't not be supported. Please make sure your MySQL server is up to date.
+  # To use this without issues, your connection limits etc. need to be configured properly in your MySQL server configuration.
+  # It is not recommended to connect multiple Lands servers to one database with the same table prefix.
+  mysql:
+    enabled_20: false
+    ip-address: 'localhost'
+    port: '3306'
+    username: 'minecraft'
+    password: 'password'
+    database: 'lands'
+
+    # It is highly recommended to set a table prefix, if you also connect other plugins to this database.
+    table-prefix: 'lands_'
+
+  # Backup settings
+  backup:
+    # Time in days after a created backup should get deleted.
+    # Set this to 0, to disable it.
+    days-delete: 30
+    # Backup creation interval.
+    # NOTE: This is only available if you use Json for data saving.
+    interval_3: 5d
+
+  # If Lands can't connect to your MySQL database, because for example the credentials are invalid or outdated.
+  # Should Lands disallow players to join the server, if it couldn't connect to the database?
+  error-disallow-join: true
+
+
+
+# Integration settings
+# Missing something? You can request a integration through pm or discord.
+# Resource page: https://www.spigotmc.org/resources/.53313
+# Discord: https://discord.gg/B4MAJVk
+integration:
+  # Management integrations
+  manager:
+    # WorldEdit
+    WorldEdit:
+      # Disallow WorldEdit use in other players lands, where the player isn't trusted?
+      # Bypass permission: lands.bypass.worldedit
+      enabled_7: true
+
+
+  # Economy settings
+  economy:
+    # Default currency
+    # Will be used, if no Vault economy lands found.
+    # NOTE: This currency is item based.
+    Default:
+      # Item, which should be used as currency.
+      # Materials can be found here:
+      # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+      item_2: 'GOLD_INGOT'
+
+    # Vault
+    # You need an economy lands, which supports Vault, to let this work.
+    Vault:
+      enabled_10: true
+
+  # 聊天选项
+  chat:
+    # PlaceholderAPI
+    # NOTE: For featherbaord you need to use {} instead of %%.
+    # To display a placeholder for your current position, just append _here to it.
+    # Example: lands_land_name_here
+    PlaceholderAPI:
+      enabled_11: true
+
+  # 网站选项
+  # 支持的插件 (Dynmap, BlueMap)
+  web:
+    enabled_12: true
+    # Should land markers be hidden by default?
+    hide: false
+    # Set the spawn icon
+    # You can disable this by setting icon to ''
+    spawn:
+      # Set the icon
+      # NOTE: For BlueMap this needs to be a direct image web address. Recommended imgage size: 32 x 32 pixels
+      icon: 'greenflag'
+      # Set minimum zoom. The icon won't display, if the zoom in your browser is smaller (mousewheel).
+      # NOTE: Recommended value for BlueMap: 126
+      min-zoom: 5
+    # The name of the layer where users can see the marked lands.
+    layer: 'Lands'
+    # Set the markers height?
+    # NOTE: Only needed for BlueMap
+    height: 62
+    # Color settings
+    land:
+      # Opacity of the marked land. Needs to be between 0 and 255
+      # NOTE: Recommended value for BlueMap: 125
+      opacity: 0.8
+      # To edit the color you need to insert the hex values given here:
+      # https://www.google.com/search?q=color+picker
+      color:
+        land_2: '#00ff00'
+        safezone_2: '#ffff00'
+    border:
+      # Opactiy of the land border. Needs to be between 0 and 255
+      # NOTE: Recommended value for BlueMap: 255
+      opacity_2: 85.0
+      # Thickness of the land border line.
+      # NOTE: Does not apply to BlueMap.
+      thickness: 2
+      # To edit the color you need to insert the hex values given here:
+      # https://www.google.com/search?q=color+picker
+      color:
+        land_3: '#009933'
+        safezone_3: '#ffcc00'
