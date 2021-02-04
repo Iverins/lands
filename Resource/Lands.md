@@ -338,9 +338,9 @@ Discord: https://discord.gg/B4MAJVk
 
 你可以配置战争持续的最长时间,你可以在战争期间看到战争何时结束.击杀人数最多的王国将会获得胜利.获胜者将从败者国库中获得赔款(你也可以更改从其它渠道中获取).你还可以设置自定义奖励.如果两个王国的击杀人数一样的话,则双方将会和局,一点奖励都没有.而且,战后将会获得一个战争保护时间(这取决于你的服务器配置)
 
-## 配置
+# 配置
 
-### 常见配置问题
+## 常见配置问题
 
 **问:** 我该如何在荒野中禁止破坏和PVP?
 **答:** 你可以输入这个命令 `/lands admin wilderness` 来打开荒野管理菜单去修改荒野的 Flag
@@ -370,15 +370,49 @@ view:
 **问:** 即使我禁用了PVP,但我还是想让我的玩家PVP.
 **答:** 你可以打开这个设置
 ```yaml
-# Specified combat settings which do not affect wars.
+# 不影响战争的战斗设置.
 combat:
-  # Combat tagging
-  # If a player attacks a other player he will by tagged for x seconds so that, regardless of land settings,
-  # other players can attack him.
-  # 0s = disabled
+  # 战斗状态
+  # 如果一个玩家攻击了另一个玩家，那么他将会进入 x 秒的战斗状态,
+  # 无论他在哪里，玩家都可以攻击他.
+  # 0s = 禁用
   tag-time: 15s
-  # Should players, which are members in a common land, be able to fight in wilderness?
-  # NOTE: This option requires server restart / reload.
+  # 同一个王国的人可以在荒野处发生内讧吗?
+  # 注意: 此选项需要服务器重载 / 重启.
   ally-wilderness: true
-
 ```
+
+**问:** 如何启用 / 禁用选择 / 占领工具?
+**答:** 你可以在 `config.yml` 中找到这个选项,或者在 `GUI的语言文件` 中更改选择 / 占领工具
+```yaml
+# Lands是否给予每位新玩家 GUI语言文件 内的 选择 / 占领 工具?
+# 如果你在 GUI语言文件 中设置工具的材质为 GOLDEN_HOE (金锄) , 则所有 金锄 都会变为 选择 / 占领工具.
+# 这意味着玩家可以自己制作工具来 选择/占领 , 但是 , 即使你没有工具 /lands selection 也可以使用.
+# 自动为玩家提供 选择工具 , 只需要告诉他们如何 占领 领土就行了,
+# 他们可以右键 空气 来圈地 , 而不用点击 方块.
+selection-tool: true
+```
+
+**问:** 如何让玩家在特定的区域中占领领土 (WorldGuard规定的区域)
+**答:** 你只需要输入 `region flag [区域] lands-claim deny/allow` (deny = 拒绝 | allow = 允许) 即可 , 默认是 deny 的.
+
+## 数据库
+
+### 可用的数据库类型
+
++ **JSON**: 如果你不需要将数据与外部相连的话,我们建议使用 JSON.一般来说,推荐有经验的服主使用 **MySQL** .
++ **MySQL**: **MySQL版本至少要 5.8+**.旧版本无法使用,请改用 **JSON** , 如果你需要将数据库连接到外部或者使用备份系统,则建议使用 **MySQL** . 如果要使用 **MySQL** , 请确保设置正确(比如 最新版的MySQL , 连接限制, utf8mb4_0900_as_cs作为数据表编码等.) 注意: 请勿搞 `跨服数据库` , 这些数据表应该只连接**一个**Lands服务器.
+
+### 将数据导出到 MySQL , 和 JSON
+
+1. 强烈建议导出之前请清空数据库! **否则,将会遇到一些不可描述的问题**
+2. 当然,如果要导出至 MySQL ,请确保在 Lands 配置中正确设置了数据库名称与密码.
+3. 备份当前数据库. 完成之后,请输入: `/lands admin convert [json , mysql]`
+
+## 玩家奖励
+
+**你需要在配置文件中启用这个功能**
+
+### 它是如何工作的
+
+
