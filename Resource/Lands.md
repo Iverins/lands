@@ -415,4 +415,156 @@ selection-tool: true
 
 ### 它是如何工作的
 
+玩家可以在线每 x 秒就获得一次奖励,比如一个 `方块`.
+
+### 配置
+
+```yaml
+time-reward:
+  enabled_17: false
+  # 时间设置
+  # 多少秒后玩家应该获得
+  # 王国内的一个区块或者自己王国多增一个区块或者多扩充一个玩家的奖励.
+  # 注意: 时间单位是秒
+  time:
+    # /Lands claim
+    chunks: 3060
+    # 玩家可以加入的王国数量.
+    lands: 43200
+    # 最大的王国玩家 (一个王国最多能有多少个玩家?)
+    members: 21600
+    # 玩家可以创建多少个王国.
+    # /Lands create
+    lands-own: 86400
+```
+
+### 最大限制
+
+可以设置玩家能够获得的最大区块奖励数量，详见：
+
+[https://github.com/Angeschossen/Lands/wiki/Permissions#playtime-reward-permissions](https://github.com/Angeschossen/Lands/wiki/Permissions#playtime-reward-permissions)
+
+
+## 王国排名
+
+### 排名牌
+
+创建一个排名牌你需要在牌子键入以下内容:
+
+**第一行:** [lands]
+**第二行:** top
+**第三行:** 需要显示排名的数量
+
+###  排名浮空字
+
+要创建浮空字,你需要安装[HolographicDisplays](https://dev.bukkit.org/projects/holographic-displays/files),然后输入 `/lands admin hologram` 来获取浮空字的命令列表
+
+**创建浮空字:**
+`/lands admin hologram create`
+
+**列出浮空字列表:**
+`/lands admin hologram list`
+
+**删除浮空字:**
+`/lands admin hologram delete`
+
+## LuckPerms 支持
+
+如果你的服务器内安装了 [LuckPerm](https://www.spigotmc.org/resources/28140) 的话,那么,你便可以搭配它来更好地开发Lands的功能.
+
+可用参数:
+
++ land = 王国名字
++ land_area = 区域名字
+
+这里有两个参数来确定玩家在当前位置是否受到该王国的信任:
+
++ land_area_trusted = yes
++ land_area_trusted = no
+
+### 实例
+
+当玩家在某一个王国内,才能拥有的权限:
+`/lp user Luck permission set test.permission land=landname`
+王国名不区分大小写
+
+当玩家在野外时才有权限
+`/lp user Luck permission set test.permission land=wilderness`
+注意: 你还可以设置 非(-) 来删除此权限
+
+当玩家被信任时才能拥有权限:
+`/lp user Luck permission set test.permission land_area_trusted=yes`
+
+## 容器(GUI菜单)
+
+GUI 文件在: `/plugins/Lands/Language`
+
+我们的菜单可以所有语言都可以配置,菜单图标的位置都可以完全自定义.
+
+有一些被隐藏的功能:
+1. 禁用物品
+    添加 `enable: false` 即可禁用
+2. 设置 custom model data:
+    添加 `model-data: 数字` 即可启用
+3. 设置物品数量
+    添加 `amount: 数字` 即可启用.
+
+## 信息文件
+
+信息文件在: `/plugins/Lands/Language`
+
+### 用Title或者Actionbar显示信息
+
+实例:
+`pvp-warning: '&c你进入了PVP状态.'`
+
+你只需要加一个 `#t#`(Title显示) 或者 `#c#`(Actionbar显示) 即可
+`pvp-warning: '#t#&c你进入了PVP状态.'`
+
+你可以加一个 `[newline]` 来代表 `\n`
+
+### 禁用信息
+
+实例:
+```yaml
+enter:
+  land: '#t#&2&l{land}[newline]&3{title}'
+  safezone: '#t#&2&l{land}[newline]{title}'
+```
+
+只需要留空即可.
+```yaml
+enter:
+  land: ''
+  safezone: ''
+```
+
+### 文本点击
+
+你可以使每一个在聊天栏提示的消息都可以点击,这意味着你可以设置悬停文本等.请注意,这个不适用于 **前缀** .
+
+1. 自定义文本的用法:
+    `[T]自定义文本[/T]`
+2. 悬停:
+    `[T]自定义文本[H]悬停文本[/H][/T]`
+3. 命令:
++ 执行命令:
+  `[T]自定义文本[H]悬停文本[/H][C]lands help[/C][/T]`
++ 补全命令:
+  `[T]自定义文本[H]悬停文本[/H][SC]lands help[/SC][/T]`
+
+#### 现学现用
+
+```
+  [T]&7Player&3 {player} &7invited you to join their land&2 {land}&7.[H]&7Click to open your invites menu.[/H][C]lands invites[/C][/T] &7Taxes:&c${tax}
+  [T]&2Accept &8[&8CLICK&8][H]&7Click here to accept this invite.[/H][C]lands accept {land}[/C][/T]
+  [T]&cDeny &8[&8CLICK&8][H]&7Click here to deny this invite.[/H][C]lands deny {land}[/C][/T]
+```
+
+#### 显示图
+
+![Display](https://static.complexstudio.net:10500/uploads/images/2021-02-05/89b3e3169a1ef4a0f6df4186128de2c9.png)
+
+## 官职
+
 
