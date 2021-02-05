@@ -602,3 +602,87 @@ yourCustomDefaultRole:
 ### 动作Flag
 
 > 动作Flag代表玩家执行的动作
+
++ **BLOCK_PLACE**
+  放置方块
+
++ **BLOCK_BREAK**
+  破坏方块
+  
++ **INTERACT_GENERAL**
+  能够交互其它 `INTERACT_FLAG` 未包括的所有类型
+
++ **INTERACT_CONTAINER**
+  与容器进行交互
+
++ **INTERACT_VILLAGER**
+  与村民交易
+
++ **BLOCK_IGNITE**
+  点燃方块
+
++ **ATTACK_PLAYER**
+  攻击玩家
+  如果禁用: *该职位无法攻击任何人.*
+  如果启用: *该职位可以攻击其他人,其他人可以在指定的区域中攻击该玩家.*
+  注意: *如果在配置中开启了 `COMBAT-TAG` 那么这个Flag可能会失效.*
+
++ **ATTACK_ANIMAL**
+  攻击动物
+
++ **FLY**
+  允许该职位在一个区域内飞行,如果不让玩家在指定的区域内飞行,那么这个Flag将会失效,若他们进入允许飞行的区域内,Lands会重新开启其飞行模式.(如果之前开启过飞行模式)
+  每个飞行插件都可以与这个兼容.
+
++ **LAND_ENTER**
+  进入区域
+
++ **SPAWN_TELEPORT**
+  重生点传送
+
++ **VEHICLE_USAGE**
+  允许放置载具
+
++ **ITEM_PICKUP**
+  捡起物品
+
+
+### 管理Flag
+
+> 管理Flag代表玩家能够编辑Flag以及设置王国
+ 
++ **PLAYER_TRUST**
+  信任其他玩家
+
++ **PLAYER_SETROLE**
+  为受信任的玩家设置职位(升职或降职)
+  *只能编辑优先级比自己低的官职*
+
++ **PLAYER_UNTRUST**
+  取消信任其他玩家
+  *只能编辑优先级比自己低的官职*
+
++ **PLAYER_BAN**
+  封禁玩家
+  *只能编辑优先级比自己低的官职*
+
++ **SETTING_EDIT_LAND**
+  设置王国自然设置(例如生成怪物等)
+
++ **SETTING_EDIT_ROLE**
+  编辑比自己职位低的官职的职能
+
++ **SETTING_EDIT_TAXES**
+  编辑税收
+  注意: *建议将这个Flag设置到你信任的玩家上,而不是一个职位.*
+  
+## 战争配置
+
+Lands设置有战争系统,能让其它王国与之抗争.此章节仅介绍入门配置,[wars.yml](https://github.com/Iverins/lands/blob/master/Resource/Config/wars.yml)里面带有更详细的说明.
+
+### 战书
+
+若想宣战,请输入 `/wars declare <王国>` .然后,该王国会收到一份详细的战书,例如何时开战以及侵略者设置的战争赔款.如果抵御者投降,那么该笔战争赔款将由抵御者支付.将准备时间设置为 `0` ,可以关闭战书.
+
+1. 最小人数
+
