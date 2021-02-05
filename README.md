@@ -16,3 +16,10 @@ MCBBS 搬运贴： https://www.mcbbs.net/thread-1000569-1-1.html
 199.232.28.133 raw.githubusercontent.com
 ```
 在命令行中输入 `ipconfig/flushdns` 即可
+
+# 中文维基位置
+
+`Resource/Lands.md`
+**点开即用**
+
+## 上面的Wiki是无法使用的
