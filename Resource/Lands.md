@@ -567,4 +567,38 @@ enter:
 
 ## 官职
 
+Lands具有功能非常丰富的官职系统,该系统能让你的王国为每个官职设置不同的权限,并且能让你自己制定官职.你可以以服务器管理员的身份编辑/添加默认官职,玩家可以在自己的王国菜单内添加属于自己的官职.
 
+### 添加 / 编辑默认官职
+
+> 你可以在 `/plugins/Lands/role.yml` 中编辑现有的默认官职或者添加新的默认官职,这些官职将适用于新的王国.
+
+实例:
+
+```yaml
+yourCustomDefaultRole:
+  name: '&e自定义默认官职'
+  # icon支持纹理 (推荐网站: https://minecraft-heads.com/) 和普通材质.
+  icon: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjFhZGZkZjA3MTE3NWFkYWQ2NDRmZTRiM2E5NzMxYWM2YThmYTQ3NTExNjJlODEzOGM4OTlmYmFhNWZmMGI5In19fQ=='
+  # 默认Flag设置,请注意,这些只适用于新建的王国,如果Flag有在上面的"Display"设置中,那么玩家可以对其进行更改.
+  default:
+    - BLOCK_PLACE
+    - BLOCK_BREAK
+    - INTERACT_GENERAL
+    - INTERACT_DOOR
+    - INTERACT_CONTAINER
+    - INTERACT_MECHANISM
+    - INTERACT_VILLAGER
+    - BLOCK_IGNITE
+    - ATTACK_PLAYER
+    - ATTACK_ANIMAL
+    - FLY
+    - LAND_ENTER
+    - SPAWN_TELEPORT
+    - VEHICLE_USE
+    - ITEM_PICKUP
+```
+
+### 动作Flag
+
+> 动作Flag代表玩家执行的动作
