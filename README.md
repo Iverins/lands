@@ -23,3 +23,5 @@ MCBBS 搬运贴： https://www.mcbbs.net/thread-1000569-1-1.html
 **点开即用**
 
 ## 上面的Wiki是无法使用的
+
+[![GitHub issues](https://img.shields.io/github/issues/Iverins/lands?style=for-the-badge)](https://github.com/Iverins/lands/issues)
