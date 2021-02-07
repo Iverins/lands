@@ -650,7 +650,7 @@ yourCustomDefaultRole:
 ### 管理Flag
 
 > 管理Flag代表玩家能够编辑Flag以及设置王国
- 
+
 + **PLAYER_TRUST**
   信任其他玩家
 
@@ -684,5 +684,110 @@ Lands设置有战争系统,能让其它王国与之抗争.此章节仅介绍入�
 
 若想宣战,请输入 `/wars declare <王国>` .然后,该王国会收到一份详细的战书,例如何时开战以及侵略者设置的战争赔款.如果抵御者投降,那么该笔战争赔款将由抵御者支付.将准备时间设置为 `0` ,可以关闭战书.
 
-1. 最小人数
+1. 最少人数
+
+设置参战的王国的最少受信任的玩家数.
+
+> min-players:
+> 设置侵略者最少受信任的玩家数.
+> attacker: 0
+> 设置抵御者最少受信任的玩家数.
+> defender: 0
+
+2. 战前准备
+
+给予抵御者多长时间用来战前准备?
+
+> 注意: 单位为 秒
+> 默认为一天
+> preparation-time: 1d
+
+3. 战书
+
+宣战是否需要经过双方同意?
+如果启用.则在战前,抵御者需要同意这个战书: `/wars declare <侵略者>` 他们可以拒绝迎战: `/wars deny`
+
+> mutual:
+> enable_2: false
+> 如果敌人在指定的时间内不对战书做出任何回应,是否删除此战书
+> 你可以设置为 0 以禁用该选项
+> timeout: 5d
+
+### 战争期间
+
+1. 最大战争时长
+
+这是战争的持续时长.
+
+> duration: 36h
+
+2. (官职) 战时FLAG设置
+
+允许玩家在敌国执行以下行为(仅在战时):
+行为Flag请参见:
+https://github.com/Angeschossen/Lands/wiki/Roles-and-their-Flags#action-flags
+注意: 如果将 `BLOCK_PLACE` 或 `BLOCK_BREAK` 添加到此列表中,则侵略者可以破坏/放置所有方块.如果要指定能破坏/放置的方块,请参照下面
+> Option: role-settings_list
+
+玩家能够放置在敌国的方块列表:
+注意: `role-settings_list` 必须没有  `BLOCK_PLACE` FLAG.
+参照: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+> Option: block-place_list
+
+玩家能够在敌国破坏的方块列表:
+注意: `role-settings_list` 必须没有  `BLOCK_BREAK` FLAG.
+参照: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+> Option: block-break_list
+
+# 权限
+
+## 数字类
+
+**请将 x 替换为数字**
+
+`lands.lands.x`
+描述: 玩家可以成为多少个王国的国民
+**注意:** 这不包括自己的王国.
+
+`lands.ownlands.x`
+描述: 玩家可以成为多少个王国的国王
+
+`lands.chunks.x`
+描述: 玩家在每个王国内可以占领多少个区块
+
+`lands.chunks.support.x`
+描述: 玩家可以为自己的王国上供多少区块
+
+`lands.members.x`
+描述: 每个王国可以有多少个国民
+
+`lands.areas.x`
+描述: 每个王国可以有多少个区域
+
+`lands.roles.x`
+描述: 每个王国可以有多少位官员
+
+`lands.free.chunks.x`
+描述: 设置可占领区块
+
+`lands.free.land.x`
+描述: 设置可创建王国的数量
+
+`lands.selection.x`
+描述: 可用 `/lands selection` 设置的最大区块数量
+
+## 命令类
+
+请参见: **入门 -> 命令**
+
+## 玩家奖励类
+
+只有开启了 **玩家时间奖励** 选项才需要
+
+```yaml
+
+```
+
+
+
 
