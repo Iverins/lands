@@ -785,7 +785,11 @@ https://github.com/Angeschossen/Lands/wiki/Roles-and-their-Flags#action-flags
 只有开启了 **玩家时间奖励** 选项才需要
 
 ```yaml
-
+lands.chunks.max.x:
+  描述: 如果玩家在线奖励区块达到 x 个这么多,那么将无法获得奖励.
+  默认: op
+lands.ownlands.max.x:
+  描述: 
 ```
 
 
